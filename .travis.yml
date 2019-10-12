@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t karthikjag/k-react-app -f Dockerfile.dev .
+
+script:
+  - docker run karthikjag/k-react-app npm run test -- --coverage
