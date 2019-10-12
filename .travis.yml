@@ -6,4 +6,4 @@ before_install:
   - docker build -t karthikjag/k-react-app -f Dockerfile.dev .
 
 script:
-  - docker run karthikjag/k-react-app npm run test -- --coverage
+  - docker run -e CI=true karthikjag/k-react-app npm run test
