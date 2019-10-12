@@ -7,3 +7,17 @@ before_install:
 
 script:
   - docker run -e CI=true karthikjag/k-react-app npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "k-react-app"
+  env: "KReactApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-168633755612"
+  bucket_path: "k-react-app"
+  on:
+    branch: master
+  access_key_id: 
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
